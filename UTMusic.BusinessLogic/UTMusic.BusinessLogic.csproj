@@ -44,7 +44,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UTMusic.DataAccess\UTMusic.DataAccess.csproj">
+      <Project>{1bcf9414-c344-4d2d-84f8-e738f4ffef42}</Project>
+      <Name>UTMusic.DataAccess</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

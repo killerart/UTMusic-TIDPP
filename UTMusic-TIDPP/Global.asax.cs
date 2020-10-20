@@ -10,8 +10,8 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
-using UTMusic.BusinessLogic.Infrastructure;
-using UTMusic.Web.Util;
+//using UTMusic.BusinessLogic.Infrastructure;
+//using UTMusic.Web.Util;
 
 namespace UTMusic_TIDPP.Web
 {
