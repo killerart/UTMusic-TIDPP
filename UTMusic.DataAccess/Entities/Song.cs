@@ -13,7 +13,7 @@ namespace UTMusic.DataAccess.Entities
         public virtual ICollection<IdNumber> IdNumbers { get; set; }
         public Song()
         {
-            IdNumbers = new HashSet<IdNumber>(); 
+            IdNumbers = new HashSet<IdNumber>();
         }
     }
 }
