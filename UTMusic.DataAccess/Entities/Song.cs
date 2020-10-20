@@ -14,7 +14,6 @@ namespace UTMusic.DataAccess.Entities
         public Song()
         {
             IdNumbers = new HashSet<IdNumber>();
-
         }
     }
 }
