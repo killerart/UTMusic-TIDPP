@@ -10,10 +10,10 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
-//using UTMusic.BusinessLogic.Infrastructure;
-//using UTMusic.Web.Util;
+using UTMusic.BusinessLogic.Infrastructure;
+using UTMusic_TIDPP.Util;
 
-namespace UTMusic_TIDPP.Web
+namespace UTMusic_TIDPP
 {
     public class Global : HttpApplication
     {
@@ -23,10 +23,10 @@ namespace UTMusic_TIDPP.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            //NinjectModule dependencyModule = new DependencyModule();
-            //NinjectModule serviceModule = new ServiceModule("MusicContext");
-            //var kernel = new StandardKernel(dependencyModule, serviceModule);
-            //DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
+            NinjectModule dependencyModule = new DependencyModule();
+            NinjectModule serviceModule = new ServiceModule("MusicContext");
+            var kernel = new StandardKernel(dependencyModule, serviceModule);
+            DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
         }
     }
 }

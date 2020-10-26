@@ -1,0 +1,55 @@
+﻿@{
+	ViewBag.Title = "Home";
+}
+<div class="container-md px-md-5">
+	<div class="row">
+		<div class="container">
+			<div class="column add-bottom">
+				<div id="mainwrap">
+					<div id="nowPlay">
+						<span id="npAction">Paused...</span><span id="npTitle"></span>
+					</div>
+					<div id="audiowrap">
+						<div id="audio0">
+							<audio id="audio1" preload="auto" controls>
+								Your browser does not support HTML5 Audio!
+								😢
+							</audio>
+						</div>
+						<div id="tracks">
+							<a id="btnPrev">&vltri;</a><a id="btnNext">&vrtri;</a>
+						</div>
+					</div>
+					@using (Ajax.BeginForm(
+						"SearchSong",
+						"Home",
+						new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "plwrap" },
+						new { @class = "form-inline my-md-2" }
+					)) {
+						<div class="md-form my-0 width-50 mx-auto">
+							<input class="form-control mr-sm-2 white-text width-100" name="searchValue" type="text" id="searchSong"
+								   placeholder="Поиск" aria-label="Search">
+						</div>
+					}
+					<div class="container">
+						<div class="row justify-content-center">
+							<button type="button" class="btn btn-light btn-sm" data-toggle="modal" data-target="#songUpload">
+								<i class="fas fa-cloud-upload-alt" aria-hidden="true">
+									Upload Song
+								</i>
+							</button>
+						</div>
+					</div>
+					<div id="plwrap">
+						@Html.Partial("SongList")
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+@section ScriptsInit{
+	@Scripts.Render("~/bundles/jquery/js")
+	@Scripts.Render("~/bundles/myPlayerInit/js")
+}

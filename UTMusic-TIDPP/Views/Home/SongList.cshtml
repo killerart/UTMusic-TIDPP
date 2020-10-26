@@ -1,0 +1,14 @@
+﻿@model SongListModel
+
+<h1>All Songs</h1>
+<div id="plList" class="container">
+	@foreach (var song in Model.AllSongs) {
+		<div class="row">
+			<div class="py-3 plItem col" file="@song.FileName">
+				<span class="plTitle">@song.Name</span>
+			</div>
+		</div>
+	}
+</div>
+@Html.Partial("_UploadModal")
+@Scripts.Render("~/Scripts/myPlayer.js")
