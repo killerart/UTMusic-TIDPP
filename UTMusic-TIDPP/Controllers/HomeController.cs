@@ -24,7 +24,6 @@ namespace UTMusic_TIDPP.Controllers
             var model = new SongListModel {
                 AllSongs = MusicService.GetSongs()
             };
-            TempData["searchValue"] = string.Empty;
             return View(model);
         }
         [HttpPost]
@@ -32,7 +31,6 @@ namespace UTMusic_TIDPP.Controllers
             var model = new SongListModel {
                 AllSongs = MusicService.SearchSongs(searchValue)
             };
-            TempData["searchValue"] = searchValue;
             return PartialView("SongList", model);
         }
         /// <summary>
@@ -46,7 +44,10 @@ namespace UTMusic_TIDPP.Controllers
             if (result.Succeeded) {
                 MusicService.AddSong(songDTO);
             }
-            return SearchSong(TempData["searchValue"] as string);
+            var model = new SongListModel {
+                AllSongs = MusicService.GetSongs()
+            };
+            return PartialView("SongList", model);
         }
     }
 }
